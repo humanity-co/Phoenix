@@ -1,4 +1,4 @@
-# 🔥 Project Phoenix: The Self-Healing Repo
+#  Project Phoenix: The Self-Healing Repo
 
 ![Bugs Fixed](https://img.shields.io/badge/Bugs%20Fixed-0-brightgreen)
 ![Language](https://img.shields.io/badge/Language-Rust-orange)
@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 How it Works
+## How it Works
 
 1.  **Detection:** The agent runs `cargo test` and captures detailed failure data (file, line number, stack trace).
 2.  **Diagnosis:** It extracts the failing source code and sends it to an AI backend (Ollama/Llama3 by default) with the error context.
@@ -18,7 +18,7 @@
 
 ---
 
-## 🛠️ Installation & Usage
+##  Installation & Usage
 
 ### Prerequisites
 - [Rust](https://rustup.rs/)
@@ -34,7 +34,7 @@
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
 ```mermaid
 graph TD
@@ -50,10 +50,10 @@ graph TD
 
 ---
 
-## 📊 Self-Healing History
+##  Self-Healing History
 Check `phoenix_stats.json` for a detailed log of every file fixed by the agent, including timestamps and the original errors.
 
 ---
 
-## 📜 License
+##  License
 MIT
