@@ -1,0 +1,33 @@
+name: Phoenix Self-Heal
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  heal:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push fixes
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Cache dependencies
+      uses: Swatinem/rust-cache@v2
+
+    - name: Run Phoenix Agent
+      env:
+        PHOENIX_API_KEY: ${{ secrets.PHOENIX_API_KEY }} # Set this in GitHub secrets
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # If PHOENIX_API_KEY is missing, we try to use local Ollama
+        # (Note: This step will fail on standard runners without Ollama installed)
+        cargo run
